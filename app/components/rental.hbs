@@ -1,0 +1,33 @@
+<article class="rental">
+  <Rental::Image src={{@rental.image}} alt="A picture of {{@rental.title}}" />
+  <div class="details">
+    <h3>
+      <LinkTo @route="rental" @model={{@rental}}>
+        {{@rental.title}}
+      </LinkTo>
+    </h3>
+    <div class="detail owner">
+      <span>Owner:</span> {{@rental.owner}}
+    </div>
+    <div class="detail type">
+      <span>Type:</span> {{@rental.type}}
+    </div>
+    <div class="detail location">
+      <span>Location:</span> {{@rental.city}}
+    </div>
+    <div class="detail bedrooms">
+      <span>Number of bedrooms:</span> {{@rental.bedrooms}}
+    </div>
+    <div class="detail nightlyrate">
+      <span>Nightly Rate:</span> {{format-currency @rental.nightlyrate}}
+    </div>
+    <div class="detail quantity">
+      <span><Input style="display: inline;" type='number' @value={{this.quantity}} /></span>
+    </div>
+    <div class="detail addCart">
+      <button style='position:absolute' onclick={{action "addToCart" @rental}}>Add To Cart</button>
+    </div>
+  </div>
+  <Map @lat={{@rental.location.lat}} @lng={{@rental.location.lng}} @zoom="9" @width="150" @height="150"
+    alt="A map of {{@rental.title}}" />
+</article>

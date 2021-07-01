@@ -1,0 +1,11 @@
+<jumbo>
+    <h2>Admin</h2>
+</jumbo>
+
+<div class="rentals">
+    <ul class="results">
+        {{#each @model as |rental|}}
+        <li>{{rental.title}}</li>
+        {{/each}}
+    </ul>
+</div>

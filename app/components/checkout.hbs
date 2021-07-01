@@ -1,0 +1,40 @@
+<article class="rental">
+  <Rental::Image src={{@checkout.image}} alt="A picture of {{@checkout.title}}" />
+
+  <div class="details">
+    <h3>
+      <LinkTo @route="rental" @model={{@checkout}}>
+        {{@checkout.title}}
+      </LinkTo>
+    </h3>
+    <div class="detail owner">
+      <span>Owner:</span> {{@checkout.owner}}
+    </div>
+    <div class="detail type">
+      <span>Type:</span> {{@checkout.type}}
+    </div>
+    <div class="detail location">
+      <span>Location:</span> {{@checkout.city}}
+    </div>
+    <div class="detail bedrooms">
+      <span>Number of bedrooms:</span> {{@checkout.bedrooms}}
+    </div>
+    <div class="detail nightlyrate">
+      <span>Nightly Rate:</span> {{format-currency @checkout.nightlyrate}}
+    </div>
+    <div class="detail quantity">
+      <span>Quantity:</span> {{@checkout.quantity}}
+    </div>
+    <div class="detail price">
+      <span>Price:</span> {{format-currency @checkout.total}}
+    </div>
+    <div class="detail remove" style='position: absolute;
+    float: right;
+    right: 173px;
+    font-size: 25px;
+    color: #404064'>
+      <button onclick={{action "removeFromCart" @cart}}>X</button> 
+    </div>
+  </div>
+
+</article>

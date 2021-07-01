@@ -1,0 +1,9 @@
+<Rentals::Checkout @rentals={{this.rentals}} as |results|>
+    <ul style="list-style-type: none;">
+        {{#each results as |checkout|}}
+        <li style="">
+            <Checkout @checkout={{checkout}} />
+        </li>
+        {{/each}}
+    </ul>
+</Rentals::Checkout>

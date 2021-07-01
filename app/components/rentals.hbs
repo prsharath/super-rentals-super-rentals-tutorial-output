@@ -1,0 +1,22 @@
+<div class="rentals">
+  <label>
+    <span>Where would you like to stay?</span>
+    <Input @value={{this.query}} class="light" />
+  </label>
+  <label style='margin-left: 598px;'>Sort by:</label>
+  <select style='width:200px;' onchange={{action (mut selectedSort) value='target.value' }} class="right">
+    <option value="A To Z">A To Z</option>
+    <option value="Z To A">Z To A</option>
+  </select>
+
+  <ul class="results">
+    <Rentals::Filter @rentals={{@rentals}} @query={{this.query}} @selectedSort={{this.selectedSort}} as |results|>
+      {{#each results as |rental|}}
+      <li>
+        <Rental @rental={{rental}} />
+      </li>
+      {{/each}}
+    </Rentals::Filter>
+  </ul>
+
+</div>

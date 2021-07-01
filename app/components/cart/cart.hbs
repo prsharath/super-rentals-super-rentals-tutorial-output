@@ -1,0 +1,7 @@
+<Rentals::Cart @rentals={{@rentals}} as |results|>
+    {{#each results as |cart|}}
+    <ul style="list-style-type: none;">
+      <li style=""><Cart @cart={{cart}} /></li>
+      </ul>
+    {{/each}}
+</Rentals::Cart>
