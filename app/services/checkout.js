@@ -1,12 +1,13 @@
 import { A } from '@ember/array';
 import Service from '@ember/service';
+import { tracked } from '@glimmer/tracking';
 
 
 export default class CheckoutService extends Service {
 
-  bookings = A([]);
+  @tracked bookings = A([]);
 
-  addToCart(rental, quantity) {
+  addToCart(rental) {
     // var addedItem = this.items.filter(item => item.title == item.title)[0];
     // if (addedItem) {
     //   let existingQuantity = item.existingquantity;
@@ -29,18 +30,19 @@ export default class CheckoutService extends Service {
     booking = {
       id: rental.id,
       rental: rental,
-      quantity: quantity,
-      total: rental.nightlyrate * quantity,
+      quantity: rental.quantity,
+      total: rental.nightlyrate * rental.quantity,
     };
 
     let existingBooking = this.bookings.findBy('id', booking.id);
 
     if (existingBooking) {
-      existingBooking.quantity = existingBooking.quantity + booking.quantity;
-      existingBooking.total = existingBooking.total + booking.total;
-    } else {
-      this.bookings.pushObject(booking);
+      booking.quantity = parseInt(existingBooking.quantity) + parseInt(booking.quantity);
+      booking.total = parseFloat(existingBooking.total) + parseFloat(booking.total);
+      this.bookings.removeObject(existingBooking);
     }
+      this.bookings.pushObject(booking);
+
   }
 
   removeFromCart(booking) {
@@ -54,5 +56,21 @@ export default class CheckoutService extends Service {
   getCart() {
     return this.bookings;
   }
+
+  getTotal(){
+    let total = 0;
+    this.bookings.forEach(element => {
+        total += element.total;
+    });
+
+    return total;
+  }
+
+  updateprice(item){
+    let booking = this.bookings.findBy('id', item.id);
+
+    booking.total = parseInt(item.quantity) * item.rental.nightlyrate;
+  }
+
 
 }

@@ -10,11 +10,16 @@ export default class CheckoutComponent extends Component {
         return this.Checkout.getCart();
     }
 
-    // @action
+     @action
     removeFromCart(rental) {
         // Only when assigning the action to an inline handler, the event object
         // is passed to the action as the first parameter.
         this.Checkout.removeFromCart(rental);
+    }
+
+    @action
+    updateprice(checkout){
+        this.Checkout.updateprice(checkout);
     }
 
 

@@ -22,7 +22,7 @@
       <span>Nightly Rate:</span> {{format-currency @rental.nightlyrate}}
     </div>
     <div class="detail quantity">
-      <span><Input style="display: inline;" type='number' @value={{this.quantity}} /></span>
+      <span><Input style="display: inline;" type='number' min="1" @value={{@rental.quantity}} /></span>
     </div>
     <div class="detail addCart">
       <button style='position:absolute' onclick={{action "addToCart" @rental}}>Add To Cart</button>

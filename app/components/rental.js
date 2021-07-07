@@ -20,7 +20,7 @@ export default class RentalComponent extends Component {
 
   @action
   addToCart() {    
-    this.Checkout.addToCart(this.args.rental, this.quantity);
+    this.Checkout.addToCart(this.args.rental);
   }
 
 

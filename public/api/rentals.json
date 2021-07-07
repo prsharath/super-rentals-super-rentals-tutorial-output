@@ -13,6 +13,7 @@
           "lng": -122.4194
         },
         "nightlyrate":499.99,
+        "quantity":1,
         "category": "Estate",
         "bedrooms": 15,
         "image": "https://upload.wikimedia.org/wikipedia/commons/c/cb/Crane_estate_(5).jpg",
@@ -32,6 +33,7 @@
           "lng": -122.3321
         },
         "nightlyrate":299.99,
+        "quantity":1,
         "category": "Condo",
         "bedrooms": 1,
         "image": "https://upload.wikimedia.org/wikipedia/commons/2/20/Seattle_-_Barnes_and_Bell_Buildings.jpg",
@@ -51,6 +53,7 @@
           "lng": -122.6801
         },
         "nightlyrate":199.99,
+        "quantity":1,
         "category": "Apartment",
         "bedrooms": 3,
         "image": "https://upload.wikimedia.org/wikipedia/commons/f/f7/Wheeldon_Apartment_Building_-_Portland_Oregon.jpg",
