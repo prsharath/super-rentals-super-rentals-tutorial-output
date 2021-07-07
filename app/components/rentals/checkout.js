@@ -1,15 +1,20 @@
 import Component from '@glimmer/component';
+import { inject as service } from '@ember/service';
+import { tracked } from '@glimmer/tracking';
 
 export default class CheckoutComponent extends Component {
 
-  get grandTotal() {
-    let { rentals } = this.args;
-    let total = 0;
-    rentals.forEach(element => {
-      total += element.total;
-    });
+  @service Checkout;
+  // get grandTotal() {
+  //   return this.Checkout.getTotal();
+  // }
 
-    return total;
+  @tracked grandTotal;
+
+  get results() {
+    let rentals = this.Checkout.getCart();
+    this.grandTotal = this.Checkout.getTotal();
+    return rentals;
   }
 
 }

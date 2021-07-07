@@ -9,7 +9,9 @@ export default class RentalModel extends Model {
   @attr city;
   @attr location;
   @attr category;
+  @attr total;
   @attr image;
+  @attr quantity;
   @attr bedrooms;
   @attr description;
   @attr nightlyrate;
